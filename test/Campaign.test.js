@@ -19,9 +19,18 @@ beforeEach(async () => {
     .createCampaign("100")
     .send({ from: accounts[0], gas: "1000000" })
 
-  [compaignAddress] = await factory.methods.getDeployedCampaigns().call()
+  const deployedCampaigns = await factory.methods.getDeployedCampaigns().call()
+  campaignAddress = deployedCampaigns[0]
+
   campaign = await new web3.eth.Contract(
     JSON.parse(compiledCampaign.interface),
     campaignAddress
   )
+})
+
+describe("Campaigns", () => {
+  it("deploys a factory and a campaign", () => {
+    assert.ok(factory.options.address)
+    assert.ok(campaign.options.address)
+  })
 })
