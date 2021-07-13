@@ -3,8 +3,6 @@ import { Card, Button } from "semantic-ui-react"
 import Layout from "../components/Layout"
 import factory from "../ethereum/factory"
 
-import "semantic-ui-css/semantic.min.css"
-
 class CampaignIndex extends Component {
   static async getInitialProps() {
     const campaigns = await factory.methods.getDeployedCampaigns().call()
