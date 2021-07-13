@@ -1,5 +1,7 @@
 {
   "semi": false,
+  "trailingComma": "none",
+  "arrowParens": "avoid",
   "overrides": [
     {
       "files": "*.sol",
