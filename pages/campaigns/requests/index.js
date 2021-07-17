@@ -8,7 +8,7 @@ import Campaign from "../../../ethereum/campaign"
 class RequestIndex extends Component {
   static async getInitialProps(props) {
     const { address } = props.query
-    const campaign = new Campaign(address)
+    const campaign = Campaign(address)
     const requestCount = await campaign.methods.getRequestCount().call()
     const approversCount = await campaign.methods.approversCount().call()
 
